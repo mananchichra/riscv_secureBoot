@@ -1,4 +1,4 @@
-1. Multi-Stage Boot Process:
+## 1. Multi-Stage Boot Process:
 
 STAGE_RESET: Initial system reset
 STAGE_ROM_VERIFY: Verify ROM contents
@@ -8,7 +8,7 @@ STAGE_SECURE_BOOT: Final secure boot stage
 STAGE_ERROR: Handle security violations
 
 
-2. Security Features:
+## 2. Security Features:
 
 Bootloader signature verification
 Separate hash verification for ROM and bootloader
@@ -18,14 +18,14 @@ Boot timing measurements
 Memory access controls
 
 
-3. Flash Interface:
+## 3. Flash Interface:
 
 Controlled bootloader loading from flash
 Address generation for flash reads
 Data buffering for verification
 
 
-4. Verification Process:
+## 4. Verification Process:
 
 Two-stage hash verification (ROM and bootloader)
 Signature checking
@@ -33,7 +33,7 @@ Version validation
 Timing checks
 
 
-5. Security Outputs:
+## 5. Security Outputs:
 
 Boot stage tracking
 Security violation flags
@@ -42,7 +42,7 @@ Boot readiness indication
 
 
 
-To implement this in your system:
+## To implement this in your system:
 
 Connect the flash interface to your actual flash memory
 Update the hash constants with your actual values
