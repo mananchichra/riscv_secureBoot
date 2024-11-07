@@ -82,9 +82,18 @@ module boot_rom (
         rom_memory[6] = 32'h30300073;  // csrw mideleg, 0   // Disable interrupts delegation
         
         // Initialize hash computation
-        for (int i = 0; i < 8; i = i + 1) begin
-            hash_regs[i] = 32'h0;
-        end
+        // integer i;
+        // for (i = 0; i < 8; i = i + 1) begin
+        //     hash_regs[i] = 32'h0;
+        // end
+        hash_regs[0] = 32'h0;
+        hash_regs[1] = 32'h0;
+        hash_regs[2] = 32'h0;
+        hash_regs[3] = 32'h0;
+        hash_regs[4] = 32'h0;
+        hash_regs[5] = 32'h0;
+        hash_regs[6] = 32'h0;
+        hash_regs[7] = 32'h0;
         
         hash_block_counter = 6'h0;
         hash_computing = 1'b0;
