@@ -117,7 +117,9 @@ module secure_boot_system (
                             verify_counter <= verify_counter + 1;
                         end else begin
                             // Verify ROM hash
-                            if ({hash_regs[7:0]} == EXPECTED_ROM_HASH) begin
+                            if ({hash_regs[7], hash_regs[6], hash_regs[5], hash_regs[4],
+                                hash_regs[3], hash_regs[2], hash_regs[1], hash_regs[0]} == EXPECTED_ROM_HASH) begin
+                            // if ({hash_regs[7:0]} == EXPECTED_ROM_HASH) begin
                                 hash_valid <= 1;
                                 boot_stage <= STAGE_BOOTLOADER_LOAD;
                                 last_verify_time <= $time;
@@ -158,7 +160,7 @@ module secure_boot_system (
                         verify_counter <= verify_counter + 1;
                     end else begin
                         // Verify bootloader hash
-                        if ({bootloader_hash_regs[7:0]} == EXPECTED_BOOTLOADER_HASH) begin
+                        if ({bootloader_hash_regs[7],bootloader_hash_regs[6],bootloader_hash_regs[5],bootloader_hash_regs[4],bootloader_hash_regs[3],bootloader_hash_regs[2],bootloader_hash_regs[1],bootloader_hash_regs[0]} == EXPECTED_BOOTLOADER_HASH) begin
                             bootloader_verified <= 1;
                             boot_stage <= STAGE_SECURE_BOOT;
                         end else begin
@@ -253,7 +255,7 @@ module secure_boot_system_tb;
    
     localparam BOOTLOADER_SIGNATURE = 32'hB007_0001;
 
-    
+
     // Clock generation
     initial begin
         clk = 0;
