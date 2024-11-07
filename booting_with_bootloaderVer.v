@@ -248,6 +248,11 @@ module secure_boot_system_tb;
         .boot_stage(boot_stage),
         .security_violation(security_violation)
     );
+        // Bootloader parameters
+    localparam BOOTLOADER_START = 32'h1000_0000;
+   
+    localparam BOOTLOADER_SIGNATURE = 32'hB007_0001;
+
     
     // Clock generation
     initial begin
